@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR /home/node/app
+
+COPY ./package.json ./package.json
+COPY ./package-lock.json ./package-lock.json
+
+RUN npm install
+
+COPY . .
+
+# RUN chown -R node /usr/app/node_modules
+
+CMD [ "npm", "run", "start" ]
