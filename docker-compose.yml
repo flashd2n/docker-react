@@ -1,18 +1,8 @@
 version: '3'
-
 services:
-  frontend:
+  web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - ./src:/home/node/app/src
-  tests:
-   build:
-     context: .
-     dockerfile: Dockerfile.dev
-   volumes:
-     - ./src:/home/node/app/src
-   command: ["npm", "run", "test"]
+      - '80:80'
